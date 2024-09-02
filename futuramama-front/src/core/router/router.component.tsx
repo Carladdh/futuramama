@@ -1,26 +1,30 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { switchRoutes } from "./routes";
 import HomeContainer from "../../scenes/home/home.container";
-import MamaContainer from "../../scenes/mama/mama.container";
-import BebeContainer from "../../scenes/bebe/bebe.container";
-import AlimentacionContainer from "../../scenes/alimentacion/alimentacion.container";
+import MamaContainer from "../../scenes/mommy/mommy.container";
+import BebeContainer from "../../scenes/baby/baby.container";
+import AlimentacionContainer from "../../scenes/feeding/feeding.container";
 import FotosContainer from "../../scenes/fotos/fotos.container";
 import PreguntasContainer from "../../scenes/preguntas/preguntas.container";
-import DiarioContainer from "../../scenes/diario/diario.container";
-import { BebeProvider } from "../../scenes/bebe/bebe.context";
-import { AlimentacionProvider } from "../../scenes/alimentacion/alimentacion.context";
+import { BabyProvider } from "../../scenes/baby/baby.context";
 import { HomeProvider } from "../../scenes/home/home.context";
-import { MamaProvider } from "../../scenes/mama/mama.context";
+import { MommyProvider } from "../../scenes/mommy/mommy.context";
 import LoginContainer from "../../scenes/login/login.container";
 import RegisterContainer from "../../scenes/register/register.container";
 import { RegisterProvider } from "../../scenes/register/register.context";
-import { LoginProvider } from "../../scenes/login/login.context";
-import { isLoggedUser } from "../utils/isLoggerUser";
+import DiaryContainer from "../../scenes/diary/diary.container";
+import { DiaryProvider } from "../../scenes/diary/diary.context";
+import { FeedingProvider } from "../../scenes/feeding/feeding.context";
+import { useContext } from "react";
+import { AuthContext } from "../auth/auth.context";
+import { UserProvider } from "../../layout/components/header/header.context";
+import UserContainer from "../../scenes/user/user.container";
 
 export const RouterComponent: React.FC = () => {
+  const { isLoggedUser } = useContext(AuthContext);
   return (
     <Routes>
-      {isLoggedUser() ? (
+      {isLoggedUser ? (
         <>
           <Route
             path={switchRoutes[0].path}
@@ -37,44 +41,45 @@ export const RouterComponent: React.FC = () => {
           <Route
             path={switchRoutes[2].path}
             element={
-              <MamaProvider>
+              <MommyProvider>
                 <MamaContainer />
-              </MamaProvider>
+              </MommyProvider>
             }
           />
           <Route
             path={switchRoutes[3].path}
             element={
-              <BebeProvider>
+              <BabyProvider>
                 <BebeContainer />
-              </BebeProvider>
+              </BabyProvider>
             }
           />
           <Route
             path={switchRoutes[4].path}
             element={
-              <AlimentacionProvider>
+              <FeedingProvider>
                 <AlimentacionContainer />
-              </AlimentacionProvider>
+              </FeedingProvider>
             }
           />
           <Route path={switchRoutes[5].path} element={<FotosContainer />} />
           <Route path={switchRoutes[6].path} element={<PreguntasContainer />} />
-          <Route path={switchRoutes[7].path} element={<DiarioContainer />} />
+          <Route
+            path={switchRoutes[7].path}
+            element={
+              <DiaryProvider>
+                <DiaryContainer />
+              </DiaryProvider>
+            }
+          />
+          <Route path={switchRoutes[10].path} element={<UserContainer />} />
         </>
       ) : (
         <>
-          <Route path="*" element={<Navigate to="/login" replace />} />
+          <Route path="*" element={<Navigate to="/login" />} />
         </>
       )}
-      <Route
-        path={switchRoutes[8].path}
-        element={
-          <LoginProvider>
-            <LoginContainer />
-          </LoginProvider>
-        }
-      />
+      <Route path={switchRoutes[8].path} element={<LoginContainer />} />
       <Route
         path={switchRoutes[9].path}
         element={

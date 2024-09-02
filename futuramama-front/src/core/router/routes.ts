@@ -9,6 +9,7 @@ export enum SwitchRoutesPath {
   diario = "/diario",
   login = "/login",
   register = "/register",
+  user = "/user",
 }
 
 interface SwitchRoute {
@@ -66,6 +67,11 @@ export const switchRoutes: SwitchRoute[] = [
   {
     path: SwitchRoutesPath.register,
     name: "Register",
+    active: false,
+  },
+  {
+    path: SwitchRoutesPath.user,
+    name: "User",
     active: false,
   },
 ];

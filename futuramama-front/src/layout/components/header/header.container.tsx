@@ -1,9 +1,21 @@
+import { useContext, useEffect } from "react";
 import HeaderComponent from "./header.component";
+import { AuthContext } from "../../../core/auth/auth.context";
+import { UserContext } from "./header.context";
 
 const HeaderContainer: React.FC = () => {
+  const { isLoggedUser } = useContext(AuthContext);
+  const { userData, getUserData } = useContext(UserContext);
+
+  useEffect(() => {
+    console.log(isLoggedUser);
+    if (isLoggedUser) {
+      getUserData();
+    }
+  }, [isLoggedUser]);
   return (
     <>
-      <HeaderComponent />
+      <HeaderComponent isLoggedUser={isLoggedUser} userData={userData} />
     </>
   );
 };

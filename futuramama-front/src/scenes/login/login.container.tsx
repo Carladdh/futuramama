@@ -2,12 +2,11 @@ import { useContext } from "react";
 import { Login } from "../../core/models/login.interface";
 import MainLayout from "../../layout/components/main-layout/mainLayout";
 import LoginComponent from "./login.component";
-import { LoginContext } from "./login.context";
+import { AuthContext } from "../../core/auth/auth.context";
 
 const LoginContainer: React.FC = () => {
-  const { handleUser } = useContext(LoginContext);
+  const { handleUser } = useContext(AuthContext);
   const userData = (user: Login) => {
-    console.log(user);
     handleUser(user);
   };
   return (

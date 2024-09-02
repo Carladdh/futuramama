@@ -4,17 +4,19 @@ import React from "react";
 
 import { AxiosGet } from "../../core/api/axios.service";
 
-interface HomeContext {
+interface FeedingContext {
   newsList: News[] | null;
 }
 
-export const HomeContext = createContext<HomeContext>({} as HomeContext);
+export const FeedingContext = createContext<FeedingContext>(
+  {} as FeedingContext
+);
 
-export const HomeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+export const FeedingProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [newsList, setNewsList] = React.useState<News[] | null>(null);
 
   const apiService = async () => {
-    await AxiosGet("/home")
+    await AxiosGet("/feeding")
       .then((res) => {
         setNewsList(res.data);
       })
@@ -28,12 +30,12 @@ export const HomeProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <HomeContext.Provider
+    <FeedingContext.Provider
       value={{
         newsList,
       }}
     >
       {children}
-    </HomeContext.Provider>
+    </FeedingContext.Provider>
   );
 };

@@ -1,20 +1,19 @@
 import { createContext, PropsWithChildren, useEffect } from "react";
 import { News } from "../../core/models/news.interface";
 import React from "react";
-
 import { AxiosGet } from "../../core/api/axios.service";
 
-interface HomeContext {
+interface MommyContext {
   newsList: News[] | null;
 }
 
-export const HomeContext = createContext<HomeContext>({} as HomeContext);
+export const MommyContext = createContext<MommyContext>({} as MommyContext);
 
-export const HomeProvider: React.FC<PropsWithChildren> = ({ children }) => {
+export const MommyProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [newsList, setNewsList] = React.useState<News[] | null>(null);
 
   const apiService = async () => {
-    await AxiosGet("/home")
+    await AxiosGet("/mommy")
       .then((res) => {
         setNewsList(res.data);
       })
@@ -28,12 +27,12 @@ export const HomeProvider: React.FC<PropsWithChildren> = ({ children }) => {
   }, []);
 
   return (
-    <HomeContext.Provider
+    <MommyContext.Provider
       value={{
         newsList,
       }}
     >
       {children}
-    </HomeContext.Provider>
+    </MommyContext.Provider>
   );
 };

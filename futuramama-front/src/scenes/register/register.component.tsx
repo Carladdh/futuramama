@@ -43,7 +43,7 @@ const RegisterComponent: React.FC<Props> = ({ handleUser }) => {
           <input
             type="text"
             id="surname2"
-            onChange={(e) => handleFormData(e, "surname1")}
+            onChange={(e) => handleFormData(e, "surname2")}
           />
         </div>
         <div className="register-container__form__element">
