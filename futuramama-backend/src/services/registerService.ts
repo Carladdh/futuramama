@@ -1,0 +1,25 @@
+import { UserModel } from "../database/schemas/user.schema";
+import { User } from "../models/user.interface";
+import { encrypt } from "../utils/bcrypt.handler";
+
+export const createRegisterUserService = async (user: User) => {
+  const checkUserExist = await UserModel.findOne({ email: user.email });
+  if (checkUserExist) {
+    return "Existe";
+  }
+  const passHash = await encrypt(user.password);
+  const userToCreate = { ...user, password: passHash };
+  return await UserModel.create(userToCreate);
+};
+
+export const updateRegisterUserService = async (id: string, user: User) => {
+  const checkUserExist = await UserModel.findOne({ _id: id });
+  if (!checkUserExist) {
+    return "No existe";
+  }
+  const passHash = await encrypt(user.password);
+  const userToUpdate = { ...user, password: passHash };
+  return await UserModel.findOneAndUpdate({ _id: id }, userToUpdate, {
+    new: true,
+  });
+};

@@ -1,0 +1,25 @@
+@import "./../../../styles/color.scss";
+
+.navbar {
+  background-color: $secondary-color;
+  height: 40px;
+  &__list {
+    display: flex;
+    list-style: none;
+
+    &__item {
+      padding: 10px;
+      &__link {
+        text-decoration: none;
+        color: $color-white;
+        font-weight: bold;
+        font-size: 16px;
+        transition: all 0.3s ease;
+        color: $color-font-secondary;
+        &:hover {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

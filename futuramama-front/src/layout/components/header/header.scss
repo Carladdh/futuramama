@@ -1,0 +1,13 @@
+@import "./../../../styles/color.scss";
+
+.header {
+  background-color: $primary-color;
+  height: 50px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 22px;
+  font-weight: bold;
+  color: $color-white;
+}

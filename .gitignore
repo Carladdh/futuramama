@@ -1,0 +1,16 @@
+futuramama-backend/node_modules/
+futuramama-frontend/node_modules/
+
+.log
+
+.env
+.env.local
+.env.*.local
+
+dist/
+build/
+
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
