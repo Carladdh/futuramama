@@ -33,7 +33,8 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   const updateUserData = (user: User) => {
-    apiServicePut(userData?._id || "", user);
+    const id = localStorage.getItem("id") || "";
+    apiServicePut(id, user);
   };
 
   const getUserData = async () => {

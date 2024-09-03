@@ -1,24 +1,23 @@
+import { useContext } from "react";
 import { Navigate, Route, Routes } from "react-router-dom";
-import { switchRoutes } from "./routes";
-import HomeContainer from "../../scenes/home/home.container";
-import MamaContainer from "../../scenes/mommy/mommy.container";
 import BebeContainer from "../../scenes/baby/baby.container";
-import AlimentacionContainer from "../../scenes/feeding/feeding.container";
-import FotosContainer from "../../scenes/fotos/fotos.container";
-import PreguntasContainer from "../../scenes/preguntas/preguntas.container";
 import { BabyProvider } from "../../scenes/baby/baby.context";
-import { HomeProvider } from "../../scenes/home/home.context";
-import { MommyProvider } from "../../scenes/mommy/mommy.context";
-import LoginContainer from "../../scenes/login/login.container";
-import RegisterContainer from "../../scenes/register/register.container";
-import { RegisterProvider } from "../../scenes/register/register.context";
 import DiaryContainer from "../../scenes/diary/diary.container";
 import { DiaryProvider } from "../../scenes/diary/diary.context";
+import AlimentacionContainer from "../../scenes/feeding/feeding.container";
 import { FeedingProvider } from "../../scenes/feeding/feeding.context";
-import { useContext } from "react";
-import { AuthContext } from "../auth/auth.context";
-import { UserProvider } from "../../layout/components/header/header.context";
+import HomeContainer from "../../scenes/home/home.container";
+import { HomeProvider } from "../../scenes/home/home.context";
+import LoginContainer from "../../scenes/login/login.container";
+import MamaContainer from "../../scenes/mommy/mommy.container";
+import { MommyProvider } from "../../scenes/mommy/mommy.context";
+import PhotosContainer from "../../scenes/photos/photos.container";
+import QuestionContainer from "../../scenes/question/question.container";
+import RegisterContainer from "../../scenes/register/register.container";
+import { RegisterProvider } from "../../scenes/register/register.context";
 import UserContainer from "../../scenes/user/user.container";
+import { AuthContext } from "../auth/auth.context";
+import { switchRoutes } from "./routes";
 
 export const RouterComponent: React.FC = () => {
   const { isLoggedUser } = useContext(AuthContext);
@@ -62,8 +61,8 @@ export const RouterComponent: React.FC = () => {
               </FeedingProvider>
             }
           />
-          <Route path={switchRoutes[5].path} element={<FotosContainer />} />
-          <Route path={switchRoutes[6].path} element={<PreguntasContainer />} />
+          <Route path={switchRoutes[5].path} element={<PhotosContainer />} />
+          <Route path={switchRoutes[6].path} element={<QuestionContainer />} />
           <Route
             path={switchRoutes[7].path}
             element={

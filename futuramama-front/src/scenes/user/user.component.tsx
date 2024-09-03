@@ -1,12 +1,18 @@
 import { useEffect, useState } from "react";
 import { User } from "../../core/models/user.interface";
+import "./user.scss";
 
 interface Props {
   userData: User;
   handleUser: (user: User) => void;
+  closeSession: () => void;
 }
 
-const UserComponent: React.FC<Props> = ({ userData, handleUser }) => {
+const UserComponent: React.FC<Props> = ({
+  userData,
+  handleUser,
+  closeSession,
+}) => {
   const [isEditable, setIsEditable] = useState(false);
   const [user, setUser] = useState<User>({} as User);
   useEffect(() => {
@@ -27,92 +33,84 @@ const UserComponent: React.FC<Props> = ({ userData, handleUser }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setIsEditable(false);
     handleUser(user);
   };
 
   return (
     userData && (
-      <div className="register-container">
-        <form className="register-container__form">
-          <div className="register-container__form__element">
-            <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              value={user.name}
-              readOnly={!isEditable}
-              onChange={(e) => handleFormData(e, "name")}
-            />
+      <>
+        <div className="user-container">
+          <form className="user-container__form">
+            <div className="user-container__form__element">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                value={user.name}
+                disabled={!isEditable}
+                onChange={(e) => handleFormData(e, "name")}
+              />
+            </div>
+            <div className="user-container__form__element">
+              <label htmlFor="surname1">Surname 1</label>
+              <input
+                type="text"
+                id="surname1"
+                value={user.surname1}
+                disabled={!isEditable}
+                onChange={(e) => handleFormData(e, "surname1")}
+              />
+            </div>
+            <div className="user-container__form__element">
+              <label htmlFor="surname2">Surname 2</label>
+              <input
+                type="text"
+                id="surname2"
+                value={user.surname2}
+                disabled={!isEditable}
+                onChange={(e) => handleFormData(e, "surname2")}
+              />
+            </div>
+            <div className="user-container__form__element">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                value={user.email}
+                disabled
+                onChange={(e) => handleFormData(e, "email")}
+              />
+            </div>
+          </form>
+          <div className="user-container__button-group">
+            {isEditable ? (
+              <button
+                className="user-container__button-group__button save"
+                onClick={handleSubmit}
+              >
+                Guardar cambios
+              </button>
+            ) : (
+              <button
+                className="user-container__button-group__button edit"
+                onClick={handleEditClick}
+              >
+                Editar
+              </button>
+            )}
           </div>
-          <div className="register-container__form__element">
-            <label htmlFor="surname1">Surname 1</label>
-            <input
-              type="text"
-              id="surname1"
-              value={user.surname1}
-              readOnly={!isEditable}
-              onChange={(e) => handleFormData(e, "surname1")}
-            />
-          </div>
-          <div className="register-container__form__element">
-            <label htmlFor="surname2">Surname 2</label>
-            <input
-              type="text"
-              id="surname2"
-              value={user.surname2}
-              readOnly={!isEditable}
-              onChange={(e) => handleFormData(e, "surname2")}
-            />
-          </div>
-
-          <div className="register-container__form__element">
-            <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              value={user.email}
-              readOnly={!isEditable}
-              onChange={(e) => handleFormData(e, "email")}
-            />
-          </div>
+        </div>
+        <div>
           <button
-            className="login-container__form__button"
-            onClick={handleSubmit}
-            disabled={!isEditable}
+            className="user-container__button-group__button close"
+            onClick={closeSession}
           >
-            Registrarse
+            Cerrar sesión
           </button>
-          <button
-            className="login-container__form__button"
-            onClick={handleEditClick}
-          >
-            Editar
-          </button>
-        </form>
-      </div>
+        </div>
+      </>
     )
   );
 };
 export default UserComponent;
-
-/*  <div className="register-container__form__element">
-          <label htmlFor="password">Password</label>
-          <input
-            type="password"
-            id="password"
-            value={user.password}
-            readOnly={!isEditable}
-            onChange={(e) => handleFormData(e, "password")}
-          />
-        </div> 
-
-
-        <div className="register-container__form__element">
-        <label htmlFor="date">Date</label>
-        <input
-          type="date"
-          id="date"
-          value={user.prevDate}
-          onChange={(e) => handleFormData(e, "prevDate")}
-        />
-      </div>*/

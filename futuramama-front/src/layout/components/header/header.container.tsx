@@ -8,7 +8,6 @@ const HeaderContainer: React.FC = () => {
   const { userData, getUserData } = useContext(UserContext);
 
   useEffect(() => {
-    console.log(isLoggedUser);
     if (isLoggedUser) {
       getUserData();
     }

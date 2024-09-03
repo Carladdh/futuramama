@@ -5,6 +5,7 @@ import {
   updateRegisterUserService,
 } from "../services/register.service";
 import { handleHttpError } from "../utils/error.handler";
+import { User } from "../models/user.interface";
 
 export const getRegisterUser = async (req: Request, res: Response) => {
   try {
@@ -27,7 +28,8 @@ export const createRegisterUser = async (req: Request, res: Response) => {
 export const updateRegisterUser = async (req: Request, res: Response) => {
   try {
     const data = await updateRegisterUserService(req.params.id, req.body);
-    res.send(data);
+    const { name, email, surname1, surname2, prevDate } = data as User;
+    res.send({ name, email, surname1, surname2, prevDate });
   } catch (error) {
     handleHttpError(res, "error", error);
   }

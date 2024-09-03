@@ -10,4 +10,50 @@
   font-size: 22px;
   font-weight: bold;
   color: $color-white;
+  position: relative;
+  &__user-data {
+    position: absolute;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    &__date {
+      margin-right: 10px;
+      color: darken($color-font-secondary, $amount: 20);
+      &--text {
+        font-size: 16px;
+      }
+      &--date {
+        font-size: 18px;
+        transition: all 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          font-size: 22px;
+          color: lighten($color: red, $amount: 0.2);
+          text-decoration: underline;
+        }
+      }
+    }
+    &__user {
+      background-color: white;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-weight: bold;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      &__link {
+        text-decoration: none;
+        color: $color-font-secondary;
+        font-weight: bold;
+        font-size: 22px;
+        transition: all 0.3s ease;
+        color: $color-font-secondary;
+        &:hover {
+          font-size: 24px;
+        }
+      }
+    }
+  }
 }

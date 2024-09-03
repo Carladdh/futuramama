@@ -7,7 +7,6 @@ import { RegisterContext } from "./register.context";
 const RegisterContainer: React.FC = () => {
   const { handleUser } = useContext(RegisterContext);
   const handleUserData = (userData: User) => {
-    console.log(userData);
     handleUser(userData);
   };
 

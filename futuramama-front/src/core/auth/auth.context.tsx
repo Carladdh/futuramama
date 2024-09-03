@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, useEffect, useState } from "react";
+import { createContext, PropsWithChildren, useState } from "react";
 import React from "react";
 import { AxiosPost } from "../api/axios.service";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import { Login } from "../models/login.interface";
 interface AuthContext {
   isLoggedUser: boolean;
   handleUser: (user: Login) => void;
+  closeSession: () => void;
 }
 
 export const AuthContext = createContext<AuthContext>({} as AuthContext);
@@ -34,6 +35,12 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
       });
   };
 
+  const closeSession = () => {
+    localStorage.clear();
+    setIsLogged(false);
+    navigate("/login");
+  };
+
   const handleUser = (userData: Login) => {
     apiService(userData);
   };
@@ -43,6 +50,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
       value={{
         handleUser,
         isLoggedUser: isLogged,
+        closeSession,
       }}
     >
       {children}

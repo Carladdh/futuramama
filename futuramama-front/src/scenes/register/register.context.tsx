@@ -16,7 +16,7 @@ export const RegisterProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const navigate = useNavigate();
   const apiService = async (userData: User) => {
     await AxiosPost("/register", userData)
-      .then((res) => {
+      .then(() => {
         navigate("/login");
       })
       .catch((error) => {
