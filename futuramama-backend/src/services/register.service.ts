@@ -21,7 +21,6 @@ export const updateRegisterUserService = async (id: string, user: User) => {
   if (!checkUserExist) {
     return "No existe";
   }
-  console.log(user);
   const { name, surname1, surname2 } = user;
   const userToUpdate = { ...checkUserExist, name, surname1, surname2 };
   return await UserModel.findOneAndUpdate({ _id: id }, userToUpdate, {

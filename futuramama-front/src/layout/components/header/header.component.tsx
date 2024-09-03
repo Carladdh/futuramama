@@ -8,7 +8,6 @@ interface Props {
   userData: User | null;
 }
 const HeaderComponent: React.FC<Props> = ({ isLoggedUser, userData }) => {
-  console.log(userData);
   return (
     <header className="header">
       <div className="header__title">FuturaMAMA</div>
