@@ -23,7 +23,7 @@ const RegisterComponent: React.FC<Props> = ({ handleUser }) => {
     <div className="register-container">
       <form className="register-container__form">
         <div className="register-container__form__element">
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Nombre</label>
           <input
             type="text"
             id="name"
@@ -31,7 +31,7 @@ const RegisterComponent: React.FC<Props> = ({ handleUser }) => {
           />
         </div>
         <div className="register-container__form__element">
-          <label htmlFor="surname1">Surname 1</label>
+          <label htmlFor="surname1">Primer apellido</label>
           <input
             type="text"
             id="surname1"
@@ -39,7 +39,7 @@ const RegisterComponent: React.FC<Props> = ({ handleUser }) => {
           />
         </div>
         <div className="register-container__form__element">
-          <label htmlFor="surname2">Surname 2</label>
+          <label htmlFor="surname2">Segundo apellido</label>
           <input
             type="text"
             id="surname2"
@@ -47,7 +47,7 @@ const RegisterComponent: React.FC<Props> = ({ handleUser }) => {
           />
         </div>
         <div className="register-container__form__element">
-          <label htmlFor="date">Date</label>
+          <label htmlFor="date">Fecha posible de embarazo</label>
           <input
             type="date"
             id="date"
