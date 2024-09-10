@@ -8,7 +8,7 @@ const BabyContainer: React.FC = () => {
 
   return (
     <MainLayout>
-      <h4>Noticias</h4>
+      <h2>Cosas interesante sobre tu Bebé</h2>
       <BabyComponent newsList={newsList} />
     </MainLayout>
   );

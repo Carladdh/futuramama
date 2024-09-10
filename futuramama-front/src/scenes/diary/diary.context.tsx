@@ -1,11 +1,12 @@
 import { createContext, PropsWithChildren, useEffect } from "react";
 import React from "react";
 import { Diary } from "../../core/models/diary.interface";
-import { AxiosGet, AxiosPost } from "../../core/api/axios.service";
+import { AxiosDelete, AxiosGet, AxiosPost } from "../../core/api/axios.service";
 
 interface DiaryContext {
   diaryNoteList: Diary[] | null;
   newDiaryNote: (diary: Diary) => void;
+  deleteDiaryNote: (id: string) => void;
 }
 
 export const DiaryContext = createContext<DiaryContext>({} as DiaryContext);
@@ -36,8 +37,22 @@ export const DiaryProvider: React.FC<PropsWithChildren> = ({ children }) => {
       });
   };
 
+  const apiServiceDelete = async (id: string) => {
+    await AxiosDelete("/diary/" + id)
+      .then(() => {
+        apiServiceGet();
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   const newDiaryNote = async (diary: Diary) => {
     await apiServicePost(diary);
+  };
+
+  const deleteDiaryNote = async (id: string) => {
+    await apiServiceDelete(id);
   };
 
   useEffect(() => {
@@ -49,6 +64,7 @@ export const DiaryProvider: React.FC<PropsWithChildren> = ({ children }) => {
       value={{
         diaryNoteList,
         newDiaryNote,
+        deleteDiaryNote,
       }}
     >
       {children}

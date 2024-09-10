@@ -1,5 +1,38 @@
+@import url("https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap");
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "SUSE", sans-serif;
+}
+
+/* Personalizar la barra de desplazamiento en todo el proyecto */
+::-webkit-scrollbar {
+  width: 12px; /* Ancho de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color del fondo de la barra */
+  border-radius: 10px; /* Bordes redondeados en el track */
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #888; /* Color de la barra de desplazamiento */
+  border-radius: 10px; /* Bordes redondeados */
+  border: 3px solid #f1f1f1; /* Borde alrededor de la barra de desplazamiento */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #555; /* Color al pasar el cursor sobre la barra */
+}
+
+/* Personalizar la barra en áreas específicas (opcional) */
+.custom-scrollbar {
+  scrollbar-width: thin; /* Estilo para Firefox */
+  scrollbar-color: #888 #f1f1f1; /* Colores para Firefox */
+}
+
+/* Opcional: Barra de desplazamiento horizontal */
+::-webkit-scrollbar-horizontal {
+  height: 12px; /* Altura de la barra horizontal */
 }

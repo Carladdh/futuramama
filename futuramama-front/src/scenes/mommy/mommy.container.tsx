@@ -8,7 +8,7 @@ const MommyContainer: React.FC = () => {
 
   return (
     <MainLayout>
-      <h4>Noticias</h4>
+      <h2>Noticias para la Mamá</h2>
       <MamaComponent newsList={newsList} />
     </MainLayout>
   );

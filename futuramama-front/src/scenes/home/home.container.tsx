@@ -10,7 +10,7 @@ const HomeContainer: React.FC = () => {
 
   return (
     <MainLayout>
-      <h4>Noticias</h4>
+      <h2>Hola!! Aquí tienes cosas interesantes!!!</h2>
       <HomeComponent newsList={newsList} />
     </MainLayout>
   );

@@ -47,12 +47,12 @@ export const switchRoutes: SwitchRoute[] = [
   {
     path: SwitchRoutesPath.fotos,
     name: "Fotos",
-    active: true,
+    active: false,
   },
   {
     path: SwitchRoutesPath.preguntas,
     name: "Preguntas",
-    active: true,
+    active: false,
   },
   {
     path: SwitchRoutesPath.diario,

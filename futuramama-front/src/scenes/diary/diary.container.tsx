@@ -4,13 +4,15 @@ import { DiaryContext } from "./diary.context";
 import DiaryComponent from "./diary.component";
 
 const DiaryContainer: React.FC = () => {
-  const { diaryNoteList, newDiaryNote } = useContext(DiaryContext);
+  const { diaryNoteList, newDiaryNote, deleteDiaryNote } =
+    useContext(DiaryContext);
   return (
     <MainLayout>
-      <h4>Diario</h4>
+      <h2>Tu día a día como Mamá</h2>
       <DiaryComponent
         diaryNoteList={diaryNoteList}
         newDiaryNote={newDiaryNote}
+        deleteDiaryNote={deleteDiaryNote}
       />
     </MainLayout>
   );
