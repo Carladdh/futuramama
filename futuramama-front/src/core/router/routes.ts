@@ -52,7 +52,7 @@ export const switchRoutes: SwitchRoute[] = [
   {
     path: SwitchRoutesPath.preguntas,
     name: "Preguntas",
-    active: false,
+    active: true,
   },
   {
     path: SwitchRoutesPath.diario,
