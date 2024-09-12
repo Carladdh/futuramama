@@ -8,7 +8,7 @@ const LoginContainer: React.FC = () => {
   const { handleUser } = useContext(AuthContext);
 
   useEffect(() => {
-    localStorage.clear();
+    sessionStorage.clear();
   }, []);
   const userData = (user: Login) => {
     handleUser(user);

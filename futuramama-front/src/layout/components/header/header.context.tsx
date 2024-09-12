@@ -33,12 +33,12 @@ export const UserProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   const updateUserData = (user: User) => {
-    const id = localStorage.getItem("id") || "";
+    const id = sessionStorage.getItem("id") || "";
     apiServicePut(id, user);
   };
 
   const getUserData = async () => {
-    const id = localStorage.getItem("id") || "";
+    const id = sessionStorage.getItem("id") || "";
     apiServiceGet(id);
   };
 

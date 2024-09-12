@@ -16,15 +16,15 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [isLogged, setIsLogged] = useState(false);
   const navigate = useNavigate();
 
-  if (localStorage.getItem("token") && !isLogged) {
+  if (sessionStorage.getItem("token") && !isLogged) {
     setIsLogged(true);
   }
 
   const apiService = async (userData: Login) => {
     await AxiosPost("/login", userData)
       .then((res) => {
-        localStorage.setItem("id", res.data.userId);
-        localStorage.setItem("token", res.data.token);
+        sessionStorage.setItem("id", res.data.userId);
+        sessionStorage.setItem("token", res.data.token);
         if (res.data.token) {
           setIsLogged(true);
           navigate("/home");
@@ -36,7 +36,7 @@ export const AuthProvider: React.FC<PropsWithChildren> = ({ children }) => {
   };
 
   const closeSession = () => {
-    localStorage.clear();
+    sessionStorage.clear();
     setIsLogged(false);
     navigate("/login");
   };

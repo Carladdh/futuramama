@@ -15,7 +15,7 @@ export const DiaryProvider: React.FC<PropsWithChildren> = ({ children }) => {
   const [diaryNoteList, setDiaryNoteList] = React.useState<Diary[] | null>(
     null
   );
-  const id = localStorage.getItem("id");
+  const id = sessionStorage.getItem("id");
 
   const apiServiceGet = async () => {
     await AxiosGet("/diary/" + id)
