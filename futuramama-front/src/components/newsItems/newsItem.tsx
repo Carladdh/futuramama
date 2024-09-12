@@ -10,7 +10,7 @@ const NewsItem: React.FC<Props> = ({ news }) => {
     news && (
       <div className="news-card">
         <h3>{news.title}</h3>
-        <p>{news.description}</p>
+        <p className="news-card__description">{news.description}</p>
         <div className="news-card__footer">
           {news?.externalLink && (
             <a

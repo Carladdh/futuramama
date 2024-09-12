@@ -1,7 +1,7 @@
 @import "../../styles/color";
 .news-card {
   border: 1px solid black;
-  padding: 1rem;
+  padding: 1.5rem;
   background-color: $primary-color;
   border-radius: 0.5rem;
   min-width: 300px;
@@ -11,6 +11,10 @@
   -moz-box-shadow: 3px 7px 11px 0px rgba(0, 0, 0, 0.66);
   box-shadow: 3px 7px 11px 0px rgba(0, 0, 0, 0.66);
   border: none;
+  &__description {
+    text-align: left;
+    margin-top: 0.5rem;
+  }
   &__footer {
     display: flex;
     justify-content: flex-end;
