@@ -18,6 +18,9 @@ const MommySchema = new Schema<News>(
     date: {
       type: String,
     },
+    externalLink: {
+      type: String,
+    },
   },
   {
     timestamps: true,

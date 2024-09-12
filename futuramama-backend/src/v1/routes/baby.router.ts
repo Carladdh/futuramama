@@ -13,6 +13,6 @@ export const babyRouter = express.Router();
 babyRouter
   .get("/", checkJwt, getAllBabies)
   .get("/:id", checkJwt, getOneBabies)
-  .post("/", createBabies)
+  .post("/", checkJwt, createBabies)
   .put("/:id", checkJwt, updateBabies)
   .delete("/:id", checkJwt, deleteBabies);

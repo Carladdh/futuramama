@@ -13,6 +13,6 @@ export const mommyRouter = express.Router();
 mommyRouter
   .get("/", checkJwt, getAllMommy)
   .get("/:id", checkJwt, getOneMommy)
-  .post("/", checkJwt, createMommy)
+  .post("/", createMommy)
   .put("/:id", checkJwt, updateMommy)
   .delete("/:id", checkJwt, deleteMommy);

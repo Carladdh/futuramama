@@ -3,6 +3,9 @@
 .navbar {
   background-color: $secondary-color;
   height: 40px;
+  position: fixed;
+  width: 100%;
+  top: 50px;
   &__list {
     display: flex;
     list-style: none;

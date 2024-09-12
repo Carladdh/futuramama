@@ -9,9 +9,21 @@ const NewsItem: React.FC<Props> = ({ news }) => {
   return (
     news && (
       <div className="news-card">
-        <h4>{news.title}</h4>
+        <h3>{news.title}</h3>
         <p>{news.description}</p>
-        <p>{news?.date}</p>
+        <div className="news-card__footer">
+          {news?.externalLink && (
+            <a
+              className="news-card__footer__read-more"
+              href={news?.externalLink}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Leer más
+            </a>
+          )}
+          <p className="news-card__footer__date">{news?.date}</p>
+        </div>
       </div>
     )
   );

@@ -5,4 +5,5 @@ export interface News {
   type?: string;
   image?: string;
   date?: string;
+  externalLink?: string;
 }

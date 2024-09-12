@@ -5,9 +5,7 @@ const QuestionContainer: React.FC = () => {
   return (
     <MainLayout>
       <h2>Pregunta a nuestra experta!!</h2>
-      <div>
-        <QuestionComponent />
-      </div>
+      <QuestionComponent />
     </MainLayout>
   );
 };

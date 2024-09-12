@@ -13,6 +13,6 @@ export const homeRouter = express.Router();
 homeRouter
   .get("/", checkJwt, getAllHome)
   .get("/:id", checkJwt, getOneHome)
-  .post("/", checkJwt, createHome)
+  .post("/", createHome)
   .put("/:id", checkJwt, updateHome)
   .delete("/:id", checkJwt, deleteHome);

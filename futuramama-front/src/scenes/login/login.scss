@@ -7,6 +7,10 @@
   margin: 0 auto;
   padding: 20px;
   margin-top: 8rem;
+  -webkit-box-shadow: 3px 7px 11px 0px rgba(0, 0, 0, 0.66);
+  -moz-box-shadow: 3px 7px 11px 0px rgba(0, 0, 0, 0.66);
+  box-shadow: 3px 7px 11px 0px rgba(0, 0, 0, 0.66);
+  border: none;
   &__form {
     width: 100%;
     display: flex;

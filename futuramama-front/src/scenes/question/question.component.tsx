@@ -1,4 +1,4 @@
-import "./question.component";
+import "./question.component.scss";
 
 const QuestionComponent: React.FC = () => {
   return (
@@ -13,11 +13,11 @@ const QuestionComponent: React.FC = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-          instagram
+          Instagram
         </a>
         o en su
         <a href="https://www.isabelpuerta.es" target="_blank">
-          página web.
+          Página Web.
         </a>
       </p>
     </div>

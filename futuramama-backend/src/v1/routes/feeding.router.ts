@@ -13,6 +13,6 @@ export const feedingRouter = express.Router();
 feedingRouter
   .get("/", checkJwt, getAllFeeding)
   .get("/:id", checkJwt, getOneFeeding)
-  .post("/", checkJwt, createFeeding)
+  .post("/", createFeeding)
   .put("/:id", checkJwt, updateFeeding)
   .delete("/:id", checkJwt, deleteFeeding);

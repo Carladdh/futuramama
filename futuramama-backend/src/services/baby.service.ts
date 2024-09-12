@@ -2,7 +2,16 @@ import { BabyModel } from "../database/schemas/baby.schema";
 import { News } from "../models/news.interface";
 
 export const getAllBabiesService = async () => {
-  return await BabyModel.find({});
+  let news = await BabyModel.find({});
+  if (news) {
+    news = news.map((el) => {
+      if (el.createdAt) {
+        el.date = new Date(el.createdAt).toLocaleDateString();
+      }
+      return el;
+    });
+  }
+  return news;
 };
 export const getOneBabiesService = async (_id: string) => {
   return await BabyModel.find({ _id });

@@ -2,7 +2,16 @@ import { FeedingModel } from "../database/schemas/feeding.schema";
 import { News } from "../models/news.interface";
 
 export const getAllFeedingService = async () => {
-  return await FeedingModel.find({});
+  let news = await FeedingModel.find({});
+  if (news) {
+    news = news.map((el) => {
+      if (el.createdAt) {
+        el.date = new Date(el.createdAt).toLocaleDateString();
+      }
+      return el;
+    });
+  }
+  return news;
 };
 export const getOneFeedingService = async (_id: string) => {
   return await FeedingModel.find({ _id });

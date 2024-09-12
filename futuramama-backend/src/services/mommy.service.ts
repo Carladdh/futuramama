@@ -2,7 +2,16 @@ import { MommyModel } from "../database/schemas/mommy.schema";
 import { News } from "../models/news.interface";
 
 export const getAllMommyService = async () => {
-  return await MommyModel.find({});
+  let news = await MommyModel.find({});
+  if (news) {
+    news = news.map((el) => {
+      if (el.createdAt) {
+        el.date = new Date(el.createdAt).toLocaleDateString();
+      }
+      return el;
+    });
+  }
+  return news;
 };
 export const getOneMommyService = async (_id: string) => {
   return await MommyModel.find({ _id });

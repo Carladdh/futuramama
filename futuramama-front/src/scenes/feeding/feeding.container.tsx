@@ -8,7 +8,7 @@ const FeedingContainer: React.FC = () => {
 
   return (
     <MainLayout>
-      <h2>Noticias</h2>
+      <h2>Lo que tienes que saber sobre la alimentación de tu Bebé</h2>
       <FeedingComponent list={newsList} />
     </MainLayout>
   );

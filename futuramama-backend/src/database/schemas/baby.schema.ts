@@ -20,6 +20,9 @@ const BabySchema = new Schema<News>(
     date: {
       type: String,
     },
+    externalLink: {
+      type: String,
+    },
   },
   {
     timestamps: true,
